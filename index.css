@@ -1,0 +1,23 @@
+* {
+    font-size: 32px;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.container {
+    max-width: 1240px;
+    margin: auto;
+}
+
+.table-main {
+    width: 100%;
+    text-align: center;
+}
+
+.table-header {
+}
+
+.table-body > tr > td > img{
+    width: 60px;
+    height: 90px;
+}
