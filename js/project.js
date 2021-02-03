@@ -7,12 +7,17 @@ const urlElement = document.querySelector("#url");
 const filmList = document.getElementById("films")
 
 const ui = new UI();
+const storage = new Storage();
 
 eventListener();
 
 function eventListener() {
     form.addEventListener("submit", addFilm);
     filmList.addEventListener("click", deleteFilm);
+    document.addEventListener("DOMContentLoaded", function() {
+        let films = storage.getFilmsFromStorage();
+        ui.loadAllFilms(films);
+    })
 }
 
 function addFilm(e) {
@@ -28,6 +33,7 @@ function addFilm(e) {
         const newFilm = new Film(title, director, url);
 
         ui.addFilmToUI(newFilm);
+        storage.addFilmToStorage(newFilm);
     }
 
     ui.clearInputs(titleElement, directorElement, urlElement);
@@ -39,6 +45,7 @@ function deleteFilm(e) {
 
     if(e.target.id === "delete-film") {
 
-        ui.deleteFilmToUI(e);
+        ui.deleteFilmFromUI(e);
+        storage.deleteFilmFromStorage();
     }
 }
