@@ -4,12 +4,15 @@ const titleElement = document.querySelector("#title");
 const directorElement = document.querySelector("#director");
 const urlElement = document.querySelector("#url");
 
+const filmList = document.getElementById("films")
+
 const ui = new UI();
 
 eventListener();
 
 function eventListener() {
     form.addEventListener("submit", addFilm);
+    filmList.addEventListener("click", deleteFilm);
 }
 
 function addFilm(e) {
@@ -30,4 +33,12 @@ function addFilm(e) {
     ui.clearInputs(titleElement, directorElement, urlElement);
 
     e.preventDefault();
+}
+
+function deleteFilm(e) {
+
+    if(e.target.id === "delete-film") {
+
+        ui.deleteFilmToUI(e);
+    }
 }

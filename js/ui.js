@@ -23,3 +23,8 @@ UI.prototype.clearInputs = function(element1, element2, element3) {
     element2.value = "";
     element3.value = "";
 }
+
+UI.prototype.deleteFilmToUI = function(e) {
+    console.log("test");
+    e.target.parentElement.parentElement.remove();
+}
