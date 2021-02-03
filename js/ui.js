@@ -25,7 +25,6 @@ UI.prototype.clearInputs = function(element1, element2, element3) {
 }
 
 UI.prototype.deleteFilmFromUI = function(e) {
-    console.log("test");
     e.target.parentElement.parentElement.remove();
 }
 
