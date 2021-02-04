@@ -6,6 +6,8 @@ const urlElement = document.querySelector("#url");
 
 const filmList = document.getElementById("films")
 
+const deleteAll = document.getElementById("clear-films")
+
 const ui = new UI();
 const storage = new Storage();
 
@@ -18,6 +20,7 @@ function eventListener() {
         let films = storage.getFilmsFromStorage();
         ui.loadAllFilms(films);
     })
+    deleteAll.addEventListener("click", deleteAllFilms);
 }
 
 function addFilm(e) {
@@ -48,4 +51,10 @@ function deleteFilm(e) {
         ui.deleteFilmFromUI(e);
         storage.deleteFilmFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
     }
+}
+
+function deleteAllFilms() {
+    
+    ui.deleteAllFilmsFromUI(filmList);
+    storage.deleteAllFilmsFromStorage();
 }

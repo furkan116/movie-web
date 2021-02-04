@@ -45,3 +45,10 @@ UI.prototype.loadAllFilms = function(films) {
     ;
     });
 }
+
+UI.prototype.deleteAllFilmsFromUI = function(e) {
+
+    while(e.firstElementChild !== null) {
+        e.firstElementChild.remove();
+    }
+}
